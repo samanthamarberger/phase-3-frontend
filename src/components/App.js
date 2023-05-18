@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import NavBar from "./NavBar";
 import MuscleGroups from "./MuscleGroups";
+import Home from "./Home";
 
 function App() {
 
@@ -18,10 +19,10 @@ function App() {
 
     return (
         <div>
-            <h3>hello</h3>
             <div>
                 <NavBar />
                 <Routes>
+                    <Route path="/" element={<Home />}/>
                     <Route path="/muscle-groups" element={<MuscleGroups />} />
                 </Routes>
             </div>
