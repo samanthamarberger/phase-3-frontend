@@ -5,6 +5,7 @@ function NavBar() {
     return(
         <div className="navbar">
             <nav>
+                <Link to="/" className="home">Home</Link>
                 <Link to="/muscle-groups" className="muscle-groups">Muscle Groups</Link>
             </nav>
         </div>

@@ -23,7 +23,7 @@ function App() {
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />}/>
-                    <Route path="/muscle-groups" element={<MuscleGroups />} />
+                    <Route path="/muscle-groups" element={<MuscleGroups muscleGroups={muscleGroups}/>} />
                 </Routes>
             </div>
         </div>
