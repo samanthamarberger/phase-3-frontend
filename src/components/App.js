@@ -14,7 +14,7 @@ function App() {
     useEffect(() => {
         fetch('http://localhost:9292/muscle_groups')
             .then((r) => r.json())
-            .then((muscle_groups) => setMuscleGroups(muscle_groups));
+            .then((muscle_groups) => /*console.log(muscle_groups)*/setMuscleGroups(muscle_groups));
     }, [])
 
     return (

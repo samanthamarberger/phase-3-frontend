@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import MuscleCard from "./MuscleCard.js";
 
 function MuscleGroups({ muscleGroups }) {
