@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import {
+    Routes,
+    Route,
+} from "react-router-dom";
 import ExerciseCard from "./ExerciseCard";
+import CardNavBar from "./CardNavBar";
 
 
 
@@ -12,20 +16,26 @@ function MuscleCard({ muscleGroup }) {
             .then((r) => r.json())
             .then((muscle) => setIndividualMuscleGroup(muscle))
     },[])
-    // console.log(individualMuscleGroup)
+
+    function handleLinks(exercise, muscleGroup) {
+        // console.log(muscleGroup);
+        return(
+            <div>
+                <Routes>
+                    <Route path={`/muscle-groups/${muscleGroup.name}/${exercise.name}`} element={<ExerciseCard exercise={exercise} />} />
+                </Routes>
+
+                <CardNavBar key={exercise.name} exercise={exercise} muscleGroup={muscleGroup}/>
+            </div>
+        )
+    }
     
     if (individualMuscleGroup){
         return(
             <div className="card">
                 <h2>{muscleGroup.name}</h2>
                 <img src={muscleGroup.image_url} alt={muscleGroup.name}/>
-                {/* <a> {exercise.name} onClick => <ExerciseCard /> 
-                <nav>
-                    <Link to="/exercises/:id" className="exercises">{}</Link>
-                    <Link to="/muscle-groups" className="muscle-groups">Muscle Groups</Link>
-                </nav>
-            */}
-                {individualMuscleGroup.exercises.map((exercise) => <ExerciseCard key={exercise.name} exercise={exercise}/>)}
+                {individualMuscleGroup.exercises.map((exercise) => handleLinks(exercise, muscleGroup))}
             </div>
         )
     }
