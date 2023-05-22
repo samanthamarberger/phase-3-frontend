@@ -9,12 +9,13 @@ import CardNavBar from "./CardNavBar";
 
 
 function MuscleCard({ muscleGroup }) {
-    const[individualMuscleGroup, setIndividualMuscleGroup] = useState(null);
-
+    
+    const[exercises, setExercises] = useState([]);
+    
     useEffect(() => {
         fetch(`http://localhost:9292/muscle_groups/${muscleGroup.id}`)
             .then((r) => r.json())
-            .then((muscle) => setIndividualMuscleGroup(muscle))
+            .then((muscle) => setExercises(muscle.exercises))
     },[])
 
     function handleLinks(exercise, muscleGroup) {
@@ -29,13 +30,16 @@ function MuscleCard({ muscleGroup }) {
             </div>
         )
     }
+    function handleAddExercise(newExercise) {
+            setExercises(...exercises, newExercise);
+    }
     
-    if (individualMuscleGroup){
+    if (exercises){
         return(
             <div className="card">
                 <h2>{muscleGroup.name}</h2>
                 <img src={muscleGroup.image_url} alt={muscleGroup.name}/>
-                {individualMuscleGroup.exercises.map((exercise) => handleLinks(exercise, muscleGroup))}
+                {exercises.map((exercise) => handleLinks(exercise, muscleGroup))}
             </div>
         )
     }

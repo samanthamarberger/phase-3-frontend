@@ -12,13 +12,10 @@ import AddExercise from "./AddExercise";
 function App() {
 
     const [muscleGroups, setMuscleGroups] = useState([]);
+    
 
     function handleAddMuscleGroup(newMuscleGroup) {
         setMuscleGroups([...muscleGroups, newMuscleGroup]);
-    }
-
-    function handleAddExercise(newExercise) {
-        
     }
 
 
@@ -27,7 +24,6 @@ function App() {
             .then((r) => r.json())
             .then((muscle_groups) => setMuscleGroups(muscle_groups));
     }, [])
-
     
 
     return (
