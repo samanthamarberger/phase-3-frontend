@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddMuscleGroup({ onAddMuscleGroup }) {
-
+    const navigate = useNavigate();
     const [muscleName, setMuscleName] = useState("");
     const [muscleImage, setMuscleImage] = useState("");
 
@@ -28,6 +29,10 @@ function AddMuscleGroup({ onAddMuscleGroup }) {
         })
         .then((r) => r.json())
         .then((muscleGroup) => onAddMuscleGroup(muscleGroup));
+
+        setMuscleName("");
+        setMuscleImage("");
+        navigate("/muscle-groups");
     }
 
     return(
@@ -43,7 +48,7 @@ function AddMuscleGroup({ onAddMuscleGroup }) {
                     <input type="text" name="Image" onChange={handleImageAdd} value={muscleImage}/>
                 </label>
                 <br />
-                <button typr="submit">Add Muscle Group</button>
+                <button type="submit">Add Muscle Group</button>
             </form>
         </div>
     )
