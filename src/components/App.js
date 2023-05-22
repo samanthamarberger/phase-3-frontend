@@ -31,7 +31,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />}/>
                     <Route path="/muscle-groups/*" element={<MuscleGroups muscleGroups={muscleGroups} />} />
-                    <Route path='/add-muscle-group' element={<AddMuscleGroup onAddMuscleGroup={handleAddMuscleGroup}/>}/>
+                    <Route path="/add-muscle-group" element={<AddMuscleGroup onAddMuscleGroup={handleAddMuscleGroup}/>}/>
                 </Routes>
             </div>
         </div>

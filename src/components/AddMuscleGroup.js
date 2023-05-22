@@ -3,8 +3,14 @@ import React, { useState } from "react";
 function AddMuscleGroup({ onAddMuscleGroup }) {
 
     const [muscleName, setMuscleName] = useState("");
-    const [paintingIamge, setPaintingImage] = useState("");
+    const [muscleIamge, setMuscleImage] = useState("");
 
+    function handleSubmit(e){
+        e.preventDefault();
+        const newMuscleGroup = {
+            name: muscleName,
+            image_url: muscleIamge
+        };
 
     fetch("http://localhost:9292/muscle_groups", {
             method: "POST",
@@ -15,9 +21,11 @@ function AddMuscleGroup({ onAddMuscleGroup }) {
         })
         .then((r) => r.json())
         .then((muscleGroup) => onAddMuscleGroup(muscleGroup));
+    }
+    
     return(
         <div className="form">
-            <form >
+            <form onSubmit={(e) => handleSubmit(e)} className="NewMuscleGroup">
                 <label>
                     Muscle Group Name:
                     <input type="text" name="name" />
