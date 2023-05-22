@@ -1,18 +1,23 @@
+import { useParams } from "react-router-dom/dist";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CardNavBar({ exercise, muscleGroup }) {
+
+    const { muscleName } = useParams();
+    const { exerciseName } = useParams();
+
     return(
         <div className="cardNavbar"> 
-      <nav>
-        <NavLink
-          to={`/muscle-groups/${muscleGroup.name}/${exercise.name}`}
-          className={`${exercise.name}`}
-        >
-          {`${exercise.name}`}
-        </NavLink>
-      </nav>
-    </div>
+            <nav>
+                <Link
+                to={`/muscle-groups/${muscleGroup.name}/${exercise.name}`}
+                className={`${exercise.name}`}
+                >
+                {`${exercise.name}`}
+                </Link>
+            </nav>
+        </div>
     )
 }
 

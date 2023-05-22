@@ -8,7 +8,6 @@ function MuscleGroups({ muscleGroups }) {
             <h2>Muscle Group Page</h2>
             <div className="container">
                 {muscleGroups.map((muscleGroup) => <MuscleCard key={muscleGroup.id} muscleGroup={muscleGroup} />)}
-                This is a container for the muscle groups
             </div>
         </div>
     );
