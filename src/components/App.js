@@ -17,6 +17,11 @@ function App() {
         setMuscleGroups([...muscleGroups, newMuscleGroup]);
     }
 
+    function handleAddExercise(newExercise) {
+        
+    }
+
+
     useEffect(() => {
         fetch('http://localhost:9292/muscle_groups')
             .then((r) => r.json())
@@ -33,7 +38,7 @@ function App() {
                     <Route path="/" element={<Home />}/>
                     <Route path="/muscle-groups/*" element={<MuscleGroups muscleGroups={muscleGroups} />} />
                     <Route path="/add-muscle-group" element={<AddMuscleGroup onAddMuscleGroup={handleAddMuscleGroup}/>}/>
-                    <Route path="/add-exercise" element={<AddExercise />}/>
+                    <Route path="/add-exercise" element={<AddExercise muscleGroups={muscleGroups}/>}/>
                 </Routes>
             </div>
         </div>
