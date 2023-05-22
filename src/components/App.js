@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import MuscleGroups from "./MuscleGroups";
 import Home from "./Home";
 import AddMuscleGroup from "./AddMuscleGroup";
+import AddExercise from "./AddExercise";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
                     <Route path="/" element={<Home />}/>
                     <Route path="/muscle-groups/*" element={<MuscleGroups muscleGroups={muscleGroups} />} />
                     <Route path="/add-muscle-group" element={<AddMuscleGroup onAddMuscleGroup={handleAddMuscleGroup}/>}/>
+                    <Route path="/add-exercise" element={<AddExercise />}/>
                 </Routes>
             </div>
         </div>
