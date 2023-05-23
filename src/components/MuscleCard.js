@@ -5,10 +5,11 @@ import {
 } from "react-router-dom";
 import ExerciseCard from "./ExerciseCard";
 import CardNavBar from "./CardNavBar";
+import AddExercise from "./AddExercise";
 
 
 
-function MuscleCard({ muscleGroup }) {
+function MuscleCard({ muscleGroup, muscleGroups }) {
     
     const[exercises, setExercises] = useState([]);
     
@@ -31,7 +32,7 @@ function MuscleCard({ muscleGroup }) {
         )
     }
     function handleAddExercise(newExercise) {
-            setExercises(...exercises, newExercise);
+        setExercises(...exercises, newExercise);
     }
     
     if (exercises){
@@ -40,6 +41,9 @@ function MuscleCard({ muscleGroup }) {
                 <h2>{muscleGroup.name}</h2>
                 <img src={muscleGroup.image_url} alt={muscleGroup.name}/>
                 {exercises.map((exercise) => handleLinks(exercise, muscleGroup))}
+                <Routes >
+                    <Route path="/add-exercise" element={<AddExercise muscleGroups={muscleGroups} onAddExercise={handleAddExercise}/>}/>
+                </Routes>
             </div>
         )
     }

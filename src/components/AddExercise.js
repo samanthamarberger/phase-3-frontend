@@ -51,22 +51,22 @@ function AddExercise({ muscleGroups, onAddExercise }) {
             <form onSubmit={(e) => handleSubmit(e)} className="NewExercise">
                 <label>
                     Exercise Name: 
-                    <input type="text" name="Name" /*onChange={handleNameAdd} value={exerciseName}*/ />
+                    <input type="text" name="Name" onChange={handleNameAdd} value={exerciseName} />
                 </label>
                 <br />
                 <label>
                     Image URL: 
-                    <input type="text" name="Image" /*onChange={handleImageAdd} value={exerciseImage}*/ />
+                    <input type="text" name="Image" onChange={handleImageAdd} value={exerciseImage} />
                 </label>
                 <br />
                 <label>
                     How to do: 
-                    <input type="text" name="How to" /*onChange={handleHowToAdd} value={exerciseHowTo}*/ />
+                    <input type="text" name="How to" onChange={handleHowToAdd} value={exerciseHowTo} />
                 </label>
                 <br />
                 <label>
                     Muscle Group Exercise belongs to: 
-                    <input type="text" name="Muscle Group" /*onChange={handleMuscleGroupBelong} value={muscleGroupBelong}*/ />
+                    <input type="text" name="Muscle Group" onChange={handleMuscleGroupBelong} value={muscleGroupBelong} />
                 </label>
                 <button type="submit">Add Exercise</button>
             </form>
