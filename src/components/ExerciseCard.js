@@ -1,9 +1,9 @@
-import React from "react"
+// import React from "react"
 
-function ExerciseCard({ exercise }) {
-    return(
-        <h2>{exercise.name}</h2>
-    )
-}
+// function ExerciseCard({ exercise }) {
+//     return(
+//         <h2>{exercise.name}</h2>
+//     )
+// }
 
-export default ExerciseCard
+// export default ExerciseCard
