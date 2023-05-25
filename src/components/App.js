@@ -52,6 +52,7 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
+import MuscleGroups from "./MuscleGroups";
 
 function App() {
 
@@ -63,11 +64,11 @@ function App() {
             .then((muscle_groups) => setMuscleGroups(muscle_groups));
     }, [])
 
-    const renderMuscleGroups = muscleGroups.map(muscleGroup => <h1>{muscleGroup.name}</h1>)
-
     return(
         <div>
-            {renderMuscleGroups}
+            <Routes>
+                <Route path="/muscle-groups" element={<MuscleGroups muscleGroups={muscleGroups} />}/>
+            </Routes>
         </div>
     )
 

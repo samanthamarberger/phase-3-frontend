@@ -17,3 +17,17 @@
 // export default MuscleGroups;
 
 
+import React from "react";
+
+function MuscleGroups({ muscleGroups }) {
+
+    const renderMuscleGroups = muscleGroups.map(muscleGroup => <h1>{muscleGroup.name}</h1>)
+
+    return(
+        <div>
+            {renderMuscleGroups}
+        </div>
+    )
+}
+
+export default MuscleGroups;
